@@ -1,5 +1,13 @@
 import java.util.Scanner;
 
+/**
+ * Sums two numeric values in a type-sensitive way.
+ * 
+ * @author sdexter72
+ *
+ */
+
+
 public class ProjectZero {
 
 	public static void main(String[] args) {
