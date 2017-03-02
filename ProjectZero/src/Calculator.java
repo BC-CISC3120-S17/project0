@@ -9,7 +9,7 @@ public class Calculator {
 
 	Calculator(){ }
 	
-	/*
+	/**
 	 * Constructor to create a new instance of Calculator
 	 * with a custom input value. This constructor sets the 
 	 * value of numberOfInputs.
@@ -20,7 +20,7 @@ public class Calculator {
 		this.numberOfInputs = numberOfInputs;
 	}
 	
-	/*
+	/**
 	 * This method always returns the value of numberOfInputs.
 	 * @return	current value numberOfInputs.
 	 */	
@@ -28,7 +28,7 @@ public class Calculator {
 		return numberOfInputs;
 	}
 	
-	/*
+	/**
 	 * This method concatenates all the user input values into 
 	 * a string. 
 	 * 
@@ -39,7 +39,7 @@ public class Calculator {
 		this.inputValues += inputValue;
 	}
 	
-	/*
+	/**
 	 * This method receives an int value to add to the current value of 
 	 * intgerSum and to pass to the collectInputValue() method.
 	 * 
@@ -57,7 +57,7 @@ public class Calculator {
 	}
 
 	
-	/*
+	/**
 	 * This method receives a double value to add to
 	 * the current value of doubleSum and to pass to the 
 	 * collectInputValue() method; 
@@ -70,7 +70,7 @@ public class Calculator {
 		collectInputValue(integer + ",");
 	}
 	
-	/*
+	/**
 	 * Increments the binaryInputCount to keep track of how many inputs
 	 * were readable in binary format.  
 	 */	
@@ -79,7 +79,7 @@ public class Calculator {
 	}
   
 	
-	/*
+	/**
 	 * This method prints the values inputed from the console along with
 	 * there respective sum.  
 	 */	
