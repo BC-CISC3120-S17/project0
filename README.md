@@ -13,7 +13,11 @@ The sum of 10.3 and 3 is 13.3.
 ```
 
 ## Extra Credit
-Implemented extra-credit portion of assignment.
+Implemented extra-credit portion of assignment. 
+```
+Enter two numbers: 1001 1001
+The sum of 1001 and 1001 is 10010.
+```
 
 ## Works Cited
 [JavaRevisited - How To Check If A Number Is Binary](http://javarevisited.blogspot.com/2014/03/how-to-check-if-number-is-binary-in-java.html#ixzz4aBOD2zz3)
