@@ -1,8 +1,8 @@
 public class Number {
 	/**
-	 * Returns a boolean value indicating whether an int is in binary format.
+	 * Returns a boolean value indicating whether an int is binary format readable.
 	 *
-	 * @param  number  an int given to be checked whether it is in binary format.
+	 * @param  number  an int given to be checked whether it is binary format readable.
 	 * @return         a boolean value
 	 * @see            Number
 	 */

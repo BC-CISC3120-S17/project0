@@ -1,102 +1,124 @@
+import java.util.ArrayList;
 
-public class Calculator {
+public class Calculator{
+	private String sum;
+	private int integerSum = 0;
+	private double doubleSum = 0;
 	private int numberOfInputs = 2;
-	private String inputValues = "";
-	private int integerSum;
-	private double doubleSum;
-	private int binaryInputCount;
+	private int binaryInputCount = 0;
 
-
-	Calculator(){ }
+	/**
+	 * Sets a value to numberOfInputs upon object creation. 
+	 *
+	 * @param  numberOfInputs	 a value of type int indicating 
+	 * the number of inputs from the console that will be calculated 
+	 * @return     No return value
+	 * @see        Calculator
+	 */ 
+	Calculator(int numberOfInputs){
+	  this.numberOfInputs = numberOfInputs;	
+	}
 	
 	/**
-	 * Constructor to create a new instance of Calculator
-	 * with a custom input value. This constructor sets the 
-	 * value of numberOfInputs.
-	 * 
-	 * @param numberOfInputs	determines the number of inputs to handle.
-	 */
-	Calculator(int numberOfInputs){
+	 * Sets a value to numberOfInputs. 
+	 *
+	 * @param  numberOfInputs	 a value of type int indicating 
+	 * the number of inputs from the console that will be calculated 
+	 * @return     No return value
+	 * @see        Calculator
+	 */ 
+	public void setNumberOfInputs(int numberOfInputs){
 		this.numberOfInputs = numberOfInputs;
 	}
 	
 	/**
-	 * This method always returns the value of numberOfInputs.
-	 * @return	current value numberOfInputs.
-	 */	
-	int getNumberOfInputs(){
+	 * Gets the value of numberOfInputs. 
+	 *
+	 * @return     returns the value of numberOfInputs
+	 * @see        Calculator
+	 */ 
+	public int getNumberOfInputs(){
 		return numberOfInputs;
 	}
 	
 	/**
-	 * This method concatenates all the user input values into 
-	 * a string. 
-	 * 
-	 * @param inputValue	The latest value input from the console.
-	 * @return						This method does not return a value.
-	 */	
-	private void collectInputValue(String inputValue){
-		this.inputValues += inputValue;
-	}
-	
-	/**
-	 * This method receives an int value to add to the current value of 
-	 * intgerSum and to pass to the collectInputValue() method.
-	 * 
-	 * @param integer		The latest input integer value from the console.
-	 * @return					This method does not return a value.
-	 */	
-	void addToIntegerSum(int integer){
-		if(Number.isBinary(integer)){
-			this.integerSum += Integer.parseInt(integer+"", 2);
-			incrementBinaryInputCount();
-		} else {
-			this.integerSum += integer;
-		}
-		collectInputValue(integer + ",");
-	}
-
-	
-	/**
-	 * This method receives a double value to add to
-	 * the current value of doubleSum and to pass to the 
-	 * collectInputValue() method; 
-	 * 
-	 * @param double		The latest input double value from the console.
-	 * @return					This method does not return a value.
-	 */	
-	void addToDoubleSum(double integer){
-		this.doubleSum += integer;
-		collectInputValue(integer + ",");
-	}
-	
-	/**
-	 * Increments the binaryInputCount to keep track of how many inputs
-	 * were readable in binary format.  
-	 */	
-	void incrementBinaryInputCount(){
-		this.binaryInputCount++;
-	}
-  
-	
-	/**
-	 * This method prints the values inputed from the console along with
-	 * there respective sum.  
-	 */	
-	void printSum(){
-		System.out.print("The sum of " + String.join(" and ", inputValues.split(",")) + " is ");
-		if(doubleSum != 0 && integerSum != 0){
-			doubleSum += integerSum;
-			System.out.print(doubleSum);
-		} else if (doubleSum != 0){
-			System.out.print(doubleSum);
-		} else if (integerSum != 0){
-			if (binaryInputCount == numberOfInputs){
-				System.out.print(Integer.toBinaryString(integerSum));		
+	 * Sums all the values in an array of type int and assigns 
+	 * it to the private int variable integerSum. 
+	 *
+	 * @param  integers	 an array of int values to be summed. 
+	 * @return     No return value
+	 * @see        Calculator
+	 */ 
+	public void setIntegerSum(int[] integers){
+		for(int i : integers){ 
+			if(Number.isBinary(i)){
+				integerSum += Integer.parseInt(i+"", 2); 
+				binaryInputCount++;
 			} else {
-				System.out.println(integerSum);
+				integerSum += i; 
 			}
 		}
-		System.out.print(".");
 	}
+	
+	/**
+	 * Sums all the values in an array of type double and assigns 
+	 * it to the private double variable doubleSum. 
+	 *
+	 * @param  doubles	 an array of double values to be summed. 
+	 * @return     No return value;
+	 * @see        Calculator
+	 */ 
+	public void setDoubleSum(double[] doubles){
+		for(double d : doubles){ doubleSum += d; }
+	}
+	
+	/**
+	 * Assigns <b>sum</b> of type String a summed value of user 
+	 * input. <p>Calculates and returns a sum based on whether
+	 * user input consisted <br>of only integers, binary readable integers, doubles, or a 
+	 * combination of the two types.
+	 *
+	 * @return     No return value;
+	 * @see        Calculator
+	 */ 
+  public void setSum(){
+		if(doubleSum != 0 && integerSum != 0){
+			sum = Double.toString(doubleSum += integerSum);
+		} else if (doubleSum != 0){
+			sum = Double.toString(doubleSum);
+		} else if (integerSum != 0){
+			if (binaryInputCount == numberOfInputs){
+				sum = Integer.toBinaryString(integerSum);
+			} else {
+				sum = Integer.toString(integerSum);
+			}
+
+		} 	
+  }
+  
+	/**
+	 * Gets the String value of sum.
+	 *
+	 * @return     returns a String
+	 * @see        Calculator
+	 */ 
+  public String getSum(){
+  	return sum;
+  }
+  
+	/**
+	 * Calls setDoubleSum() and setIntegerSum()
+	 * to set the sum of all double values to doubleSum <br>and the
+	 * sum of all int values to integerSum. Before calling setSum();
+	 *
+	 * @param  integers	 an array of int values. 
+	 * @param  doubles	 an array of double values. 
+	 * @return     No return value
+	 * @see        Calculator
+	 */ 
+  public void calculateSum(int[] integers, double[] doubles){
+  	setDoubleSum(doubles);
+  	setIntegerSum(integers);
+  	setSum();
+  }	
 }
